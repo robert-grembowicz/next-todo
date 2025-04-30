@@ -33,19 +33,15 @@ export function TodoList({ initialTodos }: TodosProps) {
   });
 
   return (
-    <section aria-labelledby="todo-heading">
-      <h1 id="todo-heading" className="text-4xl font-bold text-blue-600 mb-4">
-        TODO&apos;s List
-      </h1>
-
-      <div className="mb-4 flex gap-2">
+    <>
+      <div className="mb-4 flex justify-end gap-2">
         {(["all", "completed", "incomplete"] as TFilter[]).map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
             className={`px-3 py-1 rounded border text-sm hover:cursor-pointer ${
               filter === f
-                ? "bg-blue-600 border-blue-600"
+                ? "bg-blue-600 border-blue-600 text-white"
                 : "border-gray-300 hover:bg-gray-100 hover:text-black"
             }`}
           >
@@ -54,16 +50,22 @@ export function TodoList({ initialTodos }: TodosProps) {
         ))}
       </div>
 
-      <ul className="space-y-2" aria-label="Lista zadań">
+      <ul
+        className="space-y-2 overflow-y-scroll overflow-x-hidden"
+        aria-label="Lista zadań"
+      >
         {filtered.map((todo) => (
-          <li key={todo.id} className="flex items-center gap-2">
-            <label className="flex items-center gap-2 cursor-pointer w-full">
+          <li key={todo.id} className="flex items-center gap-2 my-4">
+            <label
+              className="flex items-center
+             gap-2 cursor-pointer w-full"
+            >
               <input
                 type="checkbox"
                 checked={todo.completed}
                 onChange={() => toggleTodo(todo.id)}
                 aria-checked={todo.completed}
-                className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-2 focus:ring-blue-500"
+                className="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-2 focus:ring-blue-500 shrink-0"
               />
               <span
                 className={`${
@@ -76,6 +78,6 @@ export function TodoList({ initialTodos }: TodosProps) {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   );
 }
