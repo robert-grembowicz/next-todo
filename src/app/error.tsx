@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { redirect } from "next/navigation";
+import Button from "@/components/Button/Button";
 
 export default function Error({
   error,
@@ -18,13 +19,10 @@ export default function Error({
 
   return (
     <main className="flex h-dvh flex-col items-center justify-center">
-      <h2 className="text-center">Something went wrong!</h2>
-      <button
-        className="mt-4 cursor-pointer rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
-        onClick={reset}
-      >
+      <h2 className="text-center mb-2">Something went wrong!</h2>
+      <Button onClick={reset} variant="primary">
         Try again
-      </button>
+      </Button>
     </main>
   );
 }

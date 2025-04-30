@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ITodo } from "@/api/api.types";
+import Button from "../Button/Button";
 
 interface TodosProps {
   initialTodos: ITodo[];
@@ -35,18 +36,14 @@ export function TodoList({ initialTodos }: TodosProps) {
   return (
     <>
       <div className="mb-4 flex justify-end gap-2">
-        {(["all", "completed", "incomplete"] as TFilter[]).map((f) => (
-          <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className={`px-3 py-1 rounded border text-sm hover:cursor-pointer ${
-              filter === f
-                ? "bg-blue-600 border-blue-600 text-white"
-                : "border-gray-300 hover:bg-gray-100 hover:text-black"
-            }`}
+        {(["all", "completed", "incomplete"] as TFilter[]).map((filterType) => (
+          <Button
+            key={filterType}
+            onClick={() => setFilter(filterType)}
+            variant={filter === filterType ? "primary" : "secondary"}
           >
-            {f}
-          </button>
+            {filterType}
+          </Button>
         ))}
       </div>
 

@@ -31,7 +31,7 @@ export default function RootLayout({
           <main className="flex grow lg:max-w-2/3 md:max-w-4/5 shadow-sm p-4 sm:p-8 bg-(--background) rounded-lg relative">
             <section
               aria-labelledby="todo-heading"
-              className="flex flex-col grow"
+              className="flex flex-col w-full"
             >
               <h1
                 id="todo-heading"
