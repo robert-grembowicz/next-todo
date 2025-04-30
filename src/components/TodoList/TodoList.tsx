@@ -52,10 +52,10 @@ export function TodoList({ initialTodos }: TodosProps) {
 
       <ul
         className="space-y-2 overflow-y-scroll overflow-x-hidden"
-        aria-label="Lista zadań"
+        aria-label="Task list"
       >
         {filtered.map((todo) => (
-          <li key={todo.id} className="flex items-center gap-2 my-4">
+          <li key={todo.id} className="flex items-center gap-2 my-4 px-1">
             <label
               className="flex items-center
              gap-2 cursor-pointer w-full"
