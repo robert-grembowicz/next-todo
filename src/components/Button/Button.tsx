@@ -10,12 +10,12 @@ type SharedProps = {
 };
 
 type SpanProps = SharedProps & {
-  asSpan: true;
+  asLink: true;
 };
 
 type ButtonOnlyProps = SharedProps &
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    asSpan?: false;
+    asLink?: false;
   };
 
 type ButtonProps = SpanProps | ButtonOnlyProps;
@@ -24,7 +24,7 @@ export default function Button({
   variant = "secondary",
   className,
   children,
-  asSpan,
+  asLink,
   ...rest
 }: ButtonProps) {
   const baseStyles =
@@ -38,7 +38,7 @@ export default function Button({
 
   const classes = clsx(baseStyles, variantStyles[variant], className);
 
-  if (asSpan) {
+  if (asLink) {
     return <span className={classes}>{children}</span>;
   }
 

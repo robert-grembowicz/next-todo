@@ -12,7 +12,7 @@ export default async function Home() {
       </Suspense>
 
       <Link href="/simulate" className="absolute top-2 left-2">
-        <Button asSpan variant="danger">
+        <Button asLink variant="danger">
           simulate error
         </Button>
       </Link>

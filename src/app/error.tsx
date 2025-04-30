@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import { redirect } from "next/navigation";
 import Button from "@/components/Button/Button";
 
-export default function Error({
-  error,
-}: {
+interface IErrorProps {
   error: Error & { digest?: string };
-}) {
-  const reset = () => {
+}
+
+export default function Error({ error }: IErrorProps) {
+  const handleClick = () => {
     redirect("/");
   };
 
@@ -18,11 +18,11 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="flex h-dvh flex-col items-center justify-center">
+    <section className="flex h-dvh flex-col items-center justify-center">
       <h2 className="text-center mb-2">Something went wrong!</h2>
-      <Button onClick={reset} variant="primary">
+      <Button onClick={handleClick} variant="primary">
         Try again
       </Button>
-    </main>
+    </section>
   );
 }
