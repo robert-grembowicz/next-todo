@@ -11,7 +11,6 @@ export async function fetchTodos(withError?: boolean): Promise<ITodo[]> {
     await delay(2000);
 
     if (withError) {
-      console.error("withError", withError);
       throw new Error("Error!!!");
     }
 
@@ -20,7 +19,7 @@ export async function fetchTodos(withError?: boolean): Promise<ITodo[]> {
 
     return data;
   } catch (error) {
-    console.error("Database Error:", error);
+    console.error(error);
     throw new Error("Failed to fetch TODO's data");
   }
 }

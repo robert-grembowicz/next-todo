@@ -4,7 +4,7 @@ import Todos from "@/components/Todos/Todos";
 import TodosSkeleton from "@/components/TodosSkeleton/TodosSkeleton";
 import Button from "@/components/Button/Button";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Suspense fallback={<TodosSkeleton />}>
