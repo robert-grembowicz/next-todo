@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { fetchTodos } from "@/api/data";
 import { TodoList } from "@/components/TodoList/TodoList";
 import TodosSkeleton from "@/components/TodosSkeleton/TodosSkeleton";
