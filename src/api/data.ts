@@ -8,7 +8,7 @@ function delay(ms: number) {
 
 export async function fetchTodos(withError?: boolean): Promise<ITodo[]> {
   try {
-    await delay(5000);
+    await delay(2000);
 
     if (withError) {
       throw new Error("Error!!!");
